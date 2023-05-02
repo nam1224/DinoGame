@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Rigidbody2D rb2D;
     public float power = 350;
     bool isJumping = true;
@@ -31,9 +31,16 @@ public class Player : MonoBehaviour
             isJumping = false;
     }
 
+    private SpriteRenderer spRd;
+    void Slide()
+    {
+        player.GetComponent<SpriteRenderer>();
+    }
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); //script를 가진 object의 Rigidbody를 가져옴
+        spRd = GetComponent<SpriteRenderer>();
     }
 
 
