@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    //private GameObject player;
+    private GameObject player;
     public Rigidbody2D rb2D;
     public float power = 350;
     bool isJumping = true;
@@ -31,9 +31,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Land"))
             isJumping = false;
     }
-    Image thisImage;
-    public Sprite sprite;
-    public SpriteRenderer spRd;
+
     void Slide()
     {
         
@@ -42,8 +40,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); //이script(Player)를 가진 object의 Rigidbody를 가져옴
-        spRd = GetComponent<SpriteRenderer>();
-        thisImage = GetComponent<Image>();
     }
 
 
