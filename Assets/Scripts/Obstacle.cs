@@ -5,27 +5,46 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public GameObject obstacle;
-    public GameObject spawn1; //up
-    public GameObject spawn2; //down
+
     void Start()
     {
-
+        SpawnObstacle(spawnTime);
+        MoveObstacle();
     }
 
-    void SpawnObstacle()
+    public Transform spawnUp; //up
+    public Transform spawnDown; //down
+    private float spawnTime= 3;
+
+    void SpawnObstacle(float time)
     {
-        float spawnTime = 0;
-        spawnTime += Time.deltaTime;
-        if (spawnTime >= 3)
+        if(time >= 3)
         {
-            int spawn = Random.Range(0, 2);
-            Instantiate(obstacle, new Vector2(-10, 0), Quaternion.identity);
+            int spawnPos = Random.Range(0, 2);
+            if (spawnPos == 0) //up
+            {
+                Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnUp.position.y), Quaternion.identity).tag = "Obstacle";
+            }
+            else //down
+                Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnDown.position.y), Quaternion.identity).tag = "Obstacle";
             spawnTime = 0;
-        } 
+        }
+    }
+
+    void MoveObstacle()
+    {
+        GameObject[] clone = GameObject.FindGameObjectsWithTag("Obstacle");
+        //Debug.Log(GameObject.FindGameObjectsWithTag("Clone").Length);
+        for(int i = 0; i < clone.Length; i++)
+        {
+            clone[i].transform.position = new Vector2(clone[i].transform.position.x + 0.05f, clone[i].transform.position.y);
+        }
     }
 
     void Update()
     {
-        SpawnObstacle();
+        spawnTime += Time.deltaTime;
+        SpawnObstacle(spawnTime);
+        MoveObstacle();
     }
 }
