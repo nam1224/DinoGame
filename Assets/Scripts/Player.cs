@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
         {
             if (isJumping == false)
             {
-                Debug.Log("Click Complete");
+                //Debug.Log("Click Complete");
                 rb2D.AddForce(transform.up * power);
                 //player.transform.position = new Vector2(player.transform.position.x, movementSpeed * Time.deltaTime);
                 isJumping = true;
@@ -27,9 +27,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("충돌 중");
         if (collision.gameObject.CompareTag("Land"))
+        {
+            Debug.Log("Land와 충돌 중");
             isJumping = false;
+        }
     }
 
     void Slide()
