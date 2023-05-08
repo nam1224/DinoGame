@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>(); //이script(Player)를 가진 object의 Rigidbody를 가져옴
         animator = GetComponent<Animator>();
+        Debug.Log("현재 목숨 수 :" + heart);
     }
 
 

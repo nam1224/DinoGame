@@ -14,6 +14,7 @@ public class CanvasManager : MonoBehaviour
     }
     
     //Player의 목숨 Image를 조절
+    
     void ShowHeart()
     {
         switch (pl.heart)
@@ -34,11 +35,10 @@ public class CanvasManager : MonoBehaviour
                 break;
         }
     }
-
+    
     public Text textScore;
     void Score() //Score를 관리
     {
-        textScore.text = "0";
         textScore.text += Time.deltaTime * 0.1f;
     }
 

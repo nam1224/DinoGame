@@ -242,6 +242,7 @@ MonoBehaviour:
   - {fileID: 2088976285}
   - {fileID: 1057846825}
   - {fileID: 1889538965}
+  textScore: {fileID: 1611681643}
 --- !u!1 &301201490
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf44fac4e85b9345a8ee70f8db8e243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgHeart: []
 --- !u!1 &402594287
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,11 +835,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 60
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 5
-    m_MaxSize: 60
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

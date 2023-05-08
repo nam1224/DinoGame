@@ -12,9 +12,9 @@ public class Obstacle : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player¿Í ObstacleÀÌ Ãæµ¹");
-            Destroy(this.gameObject);
             pl.heart++;
-            Debug.Log(pl.heart);
+            Destroy(this.gameObject);
+            Debug.Log("ºÎµúÈù È½¼ö : "+ pl.heart);
         }
 
         if (collision.gameObject.CompareTag("Land"))
