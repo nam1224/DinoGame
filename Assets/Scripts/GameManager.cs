@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Image ImgHeart1; //마지막
-    public Image ImgHeart2; //두 번째
-    public Image ImgHeart3; //가장 먼저
+    Player pl;
+    public Image[] imgHeart = new Image[3];
 
     void Start()
     {
-        Obstacle ob = new Obstacle();
+        pl = GameObject.Find("Player").GetComponent<Player>();
     }
 
     void Update()
     {
+
     }
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public int heart = 3; //Player狼 格见
-    
+    Player pl;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        pl = collision.GetComponent<Player>();
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player客 Obstacle捞 面倒");
             Destroy(this.gameObject);
-            heart--;
+            pl.heart++;
+            Debug.Log(pl.heart);
         }
 
         if (collision.gameObject.CompareTag("Land"))
