@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    private int heart = 3; //Player狼 格见
+    public int heart = 3; //Player狼 格见
     
     private void OnTriggerEnter2D(Collider2D collision)
     {

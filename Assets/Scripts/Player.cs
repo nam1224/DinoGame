@@ -10,16 +10,19 @@ public class Player : MonoBehaviour
     public float power = 350;
     bool isJumping = true;
 
+    Animator animator;
     void Jump()
     {
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if (isJumping == false)
             {
-                //Debug.Log("Click Complete");
                 rb2D.AddForce(transform.up * power);
                 //player.transform.position = new Vector2(player.transform.position.x, movementSpeed * Time.deltaTime);
                 isJumping = true;
+                animator.SetBool("anim_Jump", true);
+                Debug.Log("animator ture");
             }
             else return;
         }
@@ -31,6 +34,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Land와 충돌 중");
             isJumping = false;
+            animator.SetBool("anim_Jump", false);
+            Debug.Log("animator false");
         }
     }
 
@@ -42,6 +47,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); //이script(Player)를 가진 object의 Rigidbody를 가져옴
+        animator = GetComponent<Animator>();
     }
 
 
