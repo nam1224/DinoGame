@@ -5,22 +5,23 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     Player pl;
+    ObstacleManager obMg;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         pl = collision.GetComponent<Player>();
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player客 Obstacle捞 面倒");
+            //Debug.Log("Player客 Obstacle捞 面倒");
             pl.heart++;
             pl.DiePlayer(pl.heart);
             Destroy(this.gameObject);
-            Debug.Log("何碟腮 冉荐 : "+ pl.heart);
+            //Debug.Log("何碟腮 冉荐 : "+ pl.heart);
         }
 
         if (collision.gameObject.CompareTag("Land"))
         {
-            Debug.Log("Land客 Obstacle捞 面倒");
+            //Debug.Log("Land客 Obstacle捞 面倒");
             Destroy(this.gameObject);
         }
     }

@@ -293,6 +293,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bg: {fileID: 371641153}
   animator: {fileID: 1653359223}
+  gamePanel: {fileID: 1757707052}
+  finishPanel: {fileID: 402594287}
+  startPanel: {fileID: 1730485143}
 --- !u!114 &301201494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,6 +1118,7 @@ MonoBehaviour:
   rb2D: {fileID: 0}
   power: 450
   heart: 0
+  isGameOver: 0
 --- !u!61 &1653359222
 BoxCollider2D:
   m_ObjectHideFlags: 0

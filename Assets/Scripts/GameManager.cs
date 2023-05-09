@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     public GameObject gamePanel;
     public GameObject finishPanel;
     public GameObject startPanel;
+
+    void funtion()
+    {
+
+    }
+
     Player pl = new Player();
 
 

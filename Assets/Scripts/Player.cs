@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    private GameObject player;
     public Rigidbody2D rb2D;
     public float power = 350;
     public int heart = 0;
-    bool isJumping = true;
+    private bool isJumping = true;
     public bool isGameOver = false;
 
     Animator animator;
@@ -42,6 +41,7 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("anim_death", true);
             isGameOver = true;
+            //Debug.Log(isGameOver);
         }
     }
 

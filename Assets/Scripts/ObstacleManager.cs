@@ -7,21 +7,18 @@ public class ObstacleManager : MonoBehaviour
     public GameObject obstacle;
     void Start()
     {
-        SpawnObstacle(spawnTime, false);
+        SpawnObstacle(spawnTime);
         MoveObstacle();
     }
-
+    Player pl;
     public Transform spawnUp; //up
     public Transform spawnDown; //down
     private float spawnTime= 3;
 
-    Player pl = new Player();
-
-    void SpawnObstacle(float time, bool isGameOver)
+    void SpawnObstacle(float time)
     {
-        if(isGameOver == false)
-        {
-            if (time >= 3)
+        pl = GameObject.Find("Player").GetComponent<Player>();
+        if (time >= 3 && pl.isGameOver == false)
             {
                 int spawnPos = Random.Range(0, 2);
                 if (spawnPos < 1) //up
@@ -32,7 +29,6 @@ public class ObstacleManager : MonoBehaviour
                     Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnDown.position.y), Quaternion.identity);
                 spawnTime = 0;
             }
-        } 
     }
 
     private GameObject[] clone;
@@ -50,7 +46,7 @@ public class ObstacleManager : MonoBehaviour
     void Update()
     {
         spawnTime += Time.deltaTime;
-        SpawnObstacle(spawnTime, pl.isGameOver);
         MoveObstacle();
+        SpawnObstacle(spawnTime);
     }
 }
