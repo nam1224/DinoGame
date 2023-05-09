@@ -243,6 +243,7 @@ MonoBehaviour:
   - {fileID: 1057846825}
   - {fileID: 1889538965}
   textScore: {fileID: 1611681643}
+  scorePlus: 1
 --- !u!1 &301201490
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +847,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 99,999
+  m_Text: '0
+
+'
 --- !u!222 &1611681644
 CanvasRenderer:
   m_ObjectHideFlags: 0

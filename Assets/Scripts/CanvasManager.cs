@@ -11,6 +11,7 @@ public class CanvasManager : MonoBehaviour
     void Start()
     {
         pl = GameObject.Find("Player").GetComponent<Player>();
+        textScore.text = "0";
     }
         
     void ShowHeart()
@@ -35,13 +36,24 @@ public class CanvasManager : MonoBehaviour
     }
     
     public Text textScore;
+    int stackScore = 0;
+    public int scorePlus = 1;
     void Score() //Score¸¦ °ü¸®
     {
-        textScore.text += Time.deltaTime * 0.1f;
+        
+        time += Time.deltaTime;
+        if (time >= 1)
+        {
+            stackScore += scorePlus;
+            textScore.text = stackScore.ToString();
+            time = 0;
+        }
     }
 
+    float time;
     void Update()
     {
+
         ShowHeart();
         Score();
     }
