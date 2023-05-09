@@ -11,12 +11,45 @@ public class GameManager : MonoBehaviour
     public GameObject finishPanel;
     public GameObject startPanel;
 
-    void funtion()
+    public void ManagePanel(int num)
+    {
+        switch(num)
+        {
+            case 1: //시작 화면
+                startPanel.SetActive(true);
+                gamePanel.SetActive(false);
+                finishPanel.SetActive(false);
+                break;
+
+            case 2: //게임 화면
+                startPanel.SetActive(false);
+                gamePanel.SetActive(true);
+                finishPanel.SetActive(false);
+                break;
+
+            case 3: //종료 화면
+                startPanel.SetActive(false);
+                gamePanel.SetActive(false);
+                finishPanel.SetActive(true);
+                break;
+
+            default: //기본
+                startPanel.SetActive(false);
+                gamePanel.SetActive(true);
+                finishPanel.SetActive(false);
+                break;
+        }
+    }
+
+    void MoveBackground()
     {
 
     }
 
-    Player pl = new Player();
-
-
+    DataSave dataSave;
+    private void Start()
+    {
+        ManagePanel(0);
+        dataSave = GetComponent<DataSave>();
+    }
 }

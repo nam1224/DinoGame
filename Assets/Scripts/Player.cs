@@ -35,12 +35,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    DataSave dataSave;
     public void DiePlayer(int heart)
     {
+        GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         if(heart >= 3)
         {
             animator.SetBool("anim_death", true);
             isGameOver = true;
+            gm.ManagePanel(3);
             //Debug.Log(isGameOver);
         }
     }

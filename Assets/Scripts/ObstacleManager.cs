@@ -10,6 +10,7 @@ public class ObstacleManager : MonoBehaviour
         SpawnObstacle(spawnTime);
         MoveObstacle();
     }
+
     Player pl;
     public Transform spawnUp; //up
     public Transform spawnDown; //down
