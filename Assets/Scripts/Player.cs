@@ -35,11 +35,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Slide()
-    {
-        
-    }
-
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); //이script(Player)를 가진 object의 Rigidbody를 가져옴

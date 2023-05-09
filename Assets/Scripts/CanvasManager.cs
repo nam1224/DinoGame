@@ -36,7 +36,7 @@ public class CanvasManager : MonoBehaviour
     }
     
     public Text textScore;
-    int stackScore = 0;
+    public int stackScore = 0;
     public int scorePlus = 1; //이거 건드려서 점수 증가량 조절
     void Score() //Score를 관리
     {

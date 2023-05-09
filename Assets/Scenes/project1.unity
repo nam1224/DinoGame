@@ -244,6 +244,7 @@ MonoBehaviour:
   - {fileID: 1057846825}
   - {fileID: 1889538965}
   textScore: {fileID: 1611681643}
+  stackScore: 0
   scorePlus: 1
 --- !u!1 &301201490
 GameObject:
@@ -255,6 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 301201492}
   - component: {fileID: 301201493}
+  - component: {fileID: 301201494}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -291,6 +293,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bg: {fileID: 371641153}
   animator: {fileID: 1653359223}
+--- !u!114 &301201494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301201490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0bfd5ce15106742a19685da956ea82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &371641153
 GameObject:
   m_ObjectHideFlags: 0
