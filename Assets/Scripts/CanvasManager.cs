@@ -12,9 +12,7 @@ public class CanvasManager : MonoBehaviour
     {
         pl = GameObject.Find("Player").GetComponent<Player>();
     }
-    
-    //Player의 목숨 Image를 조절
-    
+        
     void ShowHeart()
     {
         switch (pl.heart)

@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 0}
   power: 450
-  heart: 3
+  heart: 0
 --- !u!61 &1653359222
 BoxCollider2D:
   m_ObjectHideFlags: 0
