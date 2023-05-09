@@ -5,5 +5,5 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameObject bg; 
 }

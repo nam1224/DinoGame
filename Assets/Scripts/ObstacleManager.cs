@@ -31,13 +31,14 @@ public class ObstacleManager : MonoBehaviour
     }
 
     private GameObject[] clone;
+    public float force = 0.05f;
     void MoveObstacle()
     {
         clone = GameObject.FindGameObjectsWithTag("Obstacle");
         //Debug.Log(GameObject.FindGameObjectsWithTag("Clone").Length);
         for(int i = 0; i < clone.Length; i++)
         {
-            clone[i].transform.position = new Vector2(clone[i].transform.position.x + 0.05f, clone[i].transform.position.y);
+            clone[i].transform.position = new Vector2(clone[i].transform.position.x + force, clone[i].transform.position.y);
         }
     }
 

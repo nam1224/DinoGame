@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
             {
                 rb2D.AddForce(transform.up * power);
                 isJumping = true;
-                animator.SetBool("anim_Jump", true);
+                //animator.SetBool("anim_Jump", true);
             }
             else return;
         }
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Land"))
         {
             isJumping = false;
-            animator.SetBool("anim_Jump", false);
+            //animator.SetBool("anim_Jump", false);
         }
     }
 
