@@ -7,7 +7,7 @@ public class ObstacleManager : MonoBehaviour
     public GameObject obstacle;
     void Start()
     {
-        SpawnObstacle(spawnTime);
+        SpawnObstacle(spawnTime, false);
         MoveObstacle();
     }
 
@@ -15,19 +15,24 @@ public class ObstacleManager : MonoBehaviour
     public Transform spawnDown; //down
     private float spawnTime= 3;
 
-    void SpawnObstacle(float time)
+    Player pl = new Player();
+
+    void SpawnObstacle(float time, bool isGameOver)
     {
-        if(time >= 3)
+        if(isGameOver == false)
         {
-            int spawnPos = Random.Range(0, 2);
-            if (spawnPos < 1) //up
+            if (time >= 3)
             {
-                Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnUp.position.y), Quaternion.identity);
+                int spawnPos = Random.Range(0, 2);
+                if (spawnPos < 1) //up
+                {
+                    Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnUp.position.y), Quaternion.identity);
+                }
+                else if (spawnPos >= 1) //down
+                    Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnDown.position.y), Quaternion.identity);
+                spawnTime = 0;
             }
-            else if(spawnPos >= 1) //down
-                Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnDown.position.y), Quaternion.identity);
-            spawnTime = 0;
-        }
+        } 
     }
 
     private GameObject[] clone;
@@ -45,7 +50,7 @@ public class ObstacleManager : MonoBehaviour
     void Update()
     {
         spawnTime += Time.deltaTime;
-        SpawnObstacle(spawnTime);
+        SpawnObstacle(spawnTime, pl.isGameOver);
         MoveObstacle();
     }
 }

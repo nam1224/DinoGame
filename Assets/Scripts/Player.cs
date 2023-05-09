@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float power = 350;
     public int heart = 0;
     bool isJumping = true;
+    public bool isGameOver = false;
 
     Animator animator;
     void Jump()
@@ -35,12 +36,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void DiePlayer(int heart)
+    {
+        if(heart >= 3)
+        {
+            animator.SetBool("anim_death", true);
+            isGameOver = true;
+        }
+    }
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); //이script(Player)를 가진 object의 Rigidbody를 가져옴
         animator = GetComponent<Animator>();
         Debug.Log("현재 목숨 수 :" + heart);
-        animator.SetBool("anim_run", true);
     }
 
 

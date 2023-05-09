@@ -13,6 +13,7 @@ public class Obstacle : MonoBehaviour
         {
             Debug.Log("Player¿Í ObstacleÀÌ Ãæµ¹");
             pl.heart++;
+            pl.DiePlayer(pl.heart);
             Destroy(this.gameObject);
             Debug.Log("ºÎµúÈù È½¼ö : "+ pl.heart);
         }
