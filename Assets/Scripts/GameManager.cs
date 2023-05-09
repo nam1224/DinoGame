@@ -5,5 +5,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject bg; 
+    public GameObject bg;
+    public Animator animator;
 }
