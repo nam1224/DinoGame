@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -45,6 +46,14 @@ public class Player : MonoBehaviour
             isGameOver = true;
             gm.ManagePanel(3);
             //Debug.Log(isGameOver);
+        }
+    }
+
+    public void Skill(GameObject[] enemy)
+    {
+        foreach()
+        {
+
         }
     }
 

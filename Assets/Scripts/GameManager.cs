@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,6 +45,11 @@ public class GameManager : MonoBehaviour
     void MoveBackground()
     {
 
+    }
+
+    public void RestartGame() //다시 시작
+    {
+        SceneManager.LoadScene("project1");
     }
 
     DataSave dataSave;

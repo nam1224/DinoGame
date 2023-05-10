@@ -33,7 +33,7 @@ public class ObstacleManager : MonoBehaviour
     }
 
     private GameObject[] clone;
-    public float force = 0.05f;
+    public float force = 0.1f;
     void MoveObstacle()
     {
         clone = GameObject.FindGameObjectsWithTag("Obstacle");
@@ -41,6 +41,14 @@ public class ObstacleManager : MonoBehaviour
         for(int i = 0; i < clone.Length; i++)
         {
             clone[i].transform.position = new Vector2(clone[i].transform.position.x + force, clone[i].transform.position.y);
+        }
+        pl = GameObject.Find("Player").GetComponent<Player>();
+        if(pl.isGameOver == true)
+        {
+            for(int i = 0; i < clone.Length; i++)
+            {
+                Destroy(clone[i]);
+            }
         }
     }
 

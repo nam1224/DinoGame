@@ -50,6 +50,9 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+    public Text textFinalScore;
+    public Text textMyScore;
+
     float time;
     void Update()
     {
