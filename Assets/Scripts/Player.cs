@@ -49,13 +49,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Skill()
+    float skillTime;
+    public void Skill(float time)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && time >= 10)
         {
             animator.SetTrigger("anim_attack");
-            Destroy(GameObject.FindGameObjectsWithTag("Obstacle").Min());
-            animator.SetTrigger("anim_run");
+
+            Destroy(GameObject.FindGameObjectsWithTag("Obstacle")[0]);
+            Invoke("AnimRun", 0.4f);
+            time = 0;
+
             //Debug.Log("adfjlkjf;lajf;ldaj;alkd");
         }
         //Debug.Log("Skill 호출");
@@ -66,6 +70,10 @@ public class Player : MonoBehaviour
         //Debug.Log("Skill 호출 완");
     }
 
+    private void AnimRun()
+    {
+        animator.SetTrigger("anim_run");
+    }
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -73,10 +81,11 @@ public class Player : MonoBehaviour
         //Debug.Log("현재 목숨 수 :" + heart);
     }
 
-
+    
     void Update()
     {
+        skillTime += Time.deltaTime;
         Jump();
-        Skill();
+        Skill(skillTime);
     }
 }
