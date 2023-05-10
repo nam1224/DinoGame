@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Player : MonoBehaviour
 {
+    GameObject player;
     public Rigidbody2D rb2D;
     public float power = 350;
     public int heart = 0;
@@ -49,12 +50,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Skill(GameObject[] enemy)
+    public void Skill(GameObject[] enemyArray)
     {
-        foreach()
-        {
-
-        }
+        
     }
 
     private void Start()

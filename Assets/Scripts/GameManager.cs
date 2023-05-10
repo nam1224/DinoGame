@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject gamePanel;
     public GameObject finishPanel;
     public GameObject startPanel;
-
     public void ManagePanel(int num)
     {
         switch(num)
@@ -32,6 +31,7 @@ public class GameManager : MonoBehaviour
                 startPanel.SetActive(false);
                 gamePanel.SetActive(false);
                 finishPanel.SetActive(true);
+                
                 break;
 
             default: //±âº»
