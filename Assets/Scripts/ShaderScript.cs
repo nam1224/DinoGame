@@ -8,7 +8,7 @@ public class ShaderScript : MonoBehaviour
     public Color color = Color.yellow;
 
     [Range(0, 16)]
-    public int outlineSize = 0;
+    public int outlineSize = 1;
 
     private SpriteRenderer spriteRenderer;
 

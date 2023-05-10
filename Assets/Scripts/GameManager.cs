@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject bg;
     public Animator animator;
     public GameObject gamePanel;
     public GameObject finishPanel;
@@ -27,11 +26,10 @@ public class GameManager : MonoBehaviour
                 finishPanel.SetActive(false);
                 break;
 
-            case 3: //종료 화면
+            case 3: //종료 화면    
                 startPanel.SetActive(false);
                 gamePanel.SetActive(false);
                 finishPanel.SetActive(true);
-                
                 break;
 
             default: //기본
@@ -40,11 +38,6 @@ public class GameManager : MonoBehaviour
                 finishPanel.SetActive(false);
                 break;
         }
-    }
-
-    void MoveBackground()
-    {
-
     }
 
     public void RestartGame() //다시 시작

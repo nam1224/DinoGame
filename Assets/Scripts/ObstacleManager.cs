@@ -8,7 +8,6 @@ public class ObstacleManager : MonoBehaviour
     void Start()
     {
         SpawnObstacle(spawnTime);
-        MoveObstacle();
     }
 
     Player pl;
@@ -20,42 +19,21 @@ public class ObstacleManager : MonoBehaviour
     {
         pl = GameObject.Find("Player").GetComponent<Player>();
         if (time >= 3 && pl.isGameOver == false)
-            {
-                int spawnPos = Random.Range(0, 2);
-                if (spawnPos < 1) //up
-                {
-                    Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnUp.position.y), Quaternion.identity);
-                }
-                else if (spawnPos >= 1) //down
-                    Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnDown.position.y), Quaternion.identity);
-                spawnTime = 0;
-            }
-    }
-
-    private GameObject[] clone;
-    public float force = 0.1f;
-    void MoveObstacle()
-    {
-        clone = GameObject.FindGameObjectsWithTag("Obstacle");
-        //Debug.Log(GameObject.FindGameObjectsWithTag("Clone").Length);
-        for(int i = 0; i < clone.Length; i++)
         {
-            clone[i].transform.position = new Vector2(clone[i].transform.position.x + force, clone[i].transform.position.y);
-        }
-        pl = GameObject.Find("Player").GetComponent<Player>();
-        if(pl.isGameOver == true)
-        {
-            for(int i = 0; i < clone.Length; i++)
+            int spawnPos = Random.Range(0, 2);
+            if (spawnPos < 1) //up
             {
-                Destroy(clone[i]);
+                Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnUp.position.y), Quaternion.identity);
             }
+            else if (spawnPos >= 1) //down
+                Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnDown.position.y), Quaternion.identity);
+            spawnTime = 0;
         }
     }
 
     void Update()
     {
         spawnTime += Time.deltaTime;
-        MoveObstacle();
         SpawnObstacle(spawnTime);
     }
 }

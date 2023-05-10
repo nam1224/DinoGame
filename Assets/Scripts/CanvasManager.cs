@@ -38,22 +38,30 @@ public class CanvasManager : MonoBehaviour
     public Text textScore;
     public int stackScore = 0;
     public int scorePlus = 1; //이거 건드려서 점수 증가량 조절
+    float time;
+    DataSave data;
     void Score() //Score를 관리
     {
-        
+        pl = GameObject.Find("Player").GetComponent<Player>();
+        data = GameObject.Find("GameManager").GetComponent<DataSave>();
         time += Time.deltaTime;
-        if (time >= 1)
+        if (time >= 0.35 && pl.isGameOver == false)
         {
             stackScore += scorePlus;
             textScore.text = stackScore.ToString();
             time = 0;
         }
+        else
+        {
+            textMyScore.text = stackScore.ToString();
+        }
+
+        
     }
 
     public Text textFinalScore;
     public Text textMyScore;
 
-    float time;
     void Update()
     {
 

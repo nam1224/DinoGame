@@ -5,7 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     Player pl;
-    ObstacleManager obMg;
+    Rigidbody2D rb2D;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,5 +24,25 @@ public class Obstacle : MonoBehaviour
             //Debug.Log("Land와 Obstacle이 충돌");
             Destroy(this.gameObject);
         }
+    }
+
+    public float speed = 3;
+    void MoveObstacle()
+    {
+        pl = GameObject.Find("Player").GetComponent<Player>();
+        rb2D = GetComponent<Rigidbody2D>();
+        if (pl.isGameOver == false)
+        {
+            rb2D.velocity = Vector2.right * speed;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        MoveObstacle();
     }
 }

@@ -11,8 +11,8 @@ public class PlayerData
     public int score;
     public void GetData()
     {
-        //юс╫ц
-        Debug.Log(score);
+        CanvasManager cvMg = GameObject.Find("CanvasManager").GetComponent<CanvasManager>();
+        cvMg.textFinalScore.text = score.ToString();
     }
 }
 
@@ -45,5 +45,6 @@ public class DataSave : MonoBehaviour
 
         PlayerData data2 = JsonUtility.FromJson<PlayerData>(stringjsonData);
         data2.GetData();
+        //Debug.Log("Load");
     }
 }
