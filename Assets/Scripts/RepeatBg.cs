@@ -4,5 +4,21 @@ using UnityEngine;
 
 public class RepeatBg : MonoBehaviour
 {
-    public GameObject bg1;
+    [SerializeField] [Range(1f, 20f)] float speed = 3f;
+
+    [SerializeField] float posValue;
+
+    Vector2 startPos;
+    float newPos;
+
+    private void Start()
+    {
+        startPos = transform.position;
+    }
+
+    private void Update()
+    {
+        newPos = Mathf.Repeat(Time.time * speed, posValue);
+        transform.position = startPos * Vector2.right * newPos;
+    }
 }
