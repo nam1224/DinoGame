@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
     ShaderScript shader;
     public void Skill(float time)
     {
-        if (Input.GetKeyDown(KeyCode.E) &&time >= 10)
+        if (Input.GetKeyDown(KeyCode.E) && time >= 10)
         {
             try
             {
@@ -61,13 +61,13 @@ public class Player : MonoBehaviour
                 shader.outlineSize = 1;
                 Destroy(GameObject.FindGameObjectsWithTag("Obstacle")[0]);
                 Invoke("AnimRun", 0.4f);
-                time = 0;
             }
             catch
             {
                 throw;
             }
             //Debug.Log("adfjlkjf;lajf;ldaj;alkd");
+            skillTime = 0;
         }
         //Debug.Log("Skill »£√‚");
         //List<GameObject> enemies = new List<GameObject>();
