@@ -11,8 +11,9 @@ public class PlayerData
     public int score;
     public void GetData()
     {
-        CanvasManager cvMg = GameObject.Find("CanvasManager").GetComponent<CanvasManager>();
+        CanvasManager cvMg = GameObject.Find("Canvas").GetComponent<CanvasManager>();
         cvMg.textFinalScore.text = score.ToString();
+        Debug.Log(cvMg.stackScore);
     }
 }
 
@@ -21,12 +22,12 @@ public class DataSave : MonoBehaviour
     //데이터 저장 -> 
     private void Start()
     {
-        //SaveData();
+
     }
     public void SaveData()
     {
         PlayerData myData = new PlayerData();
-        CanvasManager cvMg = new CanvasManager();
+        CanvasManager cvMg = GameObject.Find("Canvas").GetComponent<CanvasManager>();
 
         myData.score = cvMg.stackScore;
         Debug.Log(myData.score);
@@ -41,10 +42,17 @@ public class DataSave : MonoBehaviour
 
     public void loadData()
     {
-        string stringjsonData = File.ReadAllText(Application.persistentDataPath + "/PlayerData.json");
-
-        PlayerData data2 = JsonUtility.FromJson<PlayerData>(stringjsonData);
-        data2.GetData();
-        //Debug.Log("Load");
+        try
+        {
+            string jsonData = File.ReadAllText(Application.persistentDataPath + "/PlayerData.json");
+            Debug.Log(jsonData);
+            PlayerData myData = JsonUtility.FromJson<PlayerData>(jsonData);
+            myData.GetData();
+        }
+        catch(Exception)
+        {
+            SaveData();
+        }
+        
     }
 }

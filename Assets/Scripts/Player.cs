@@ -50,16 +50,23 @@ public class Player : MonoBehaviour
     }
 
     float skillTime;
+    ShaderScript shader;
     public void Skill(float time)
     {
-        if (Input.GetKeyDown(KeyCode.E) && time >= 10)
+        if (Input.GetKeyDown(KeyCode.E) &&time >= 10)
         {
-            animator.SetTrigger("anim_attack");
-
-            Destroy(GameObject.FindGameObjectsWithTag("Obstacle")[0]);
-            Invoke("AnimRun", 0.4f);
-            time = 0;
-
+            try
+            {
+                animator.SetTrigger("anim_attack");
+                shader.outlineSize = 1;
+                Destroy(GameObject.FindGameObjectsWithTag("Obstacle")[0]);
+                Invoke("AnimRun", 0.4f);
+                time = 0;
+            }
+            catch
+            {
+                throw;
+            }
             //Debug.Log("adfjlkjf;lajf;ldaj;alkd");
         }
         //Debug.Log("Skill 호출");
@@ -72,12 +79,14 @@ public class Player : MonoBehaviour
 
     private void AnimRun()
     {
+        shader.outlineSize = 0;
         animator.SetTrigger("anim_run");
     }
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        shader = GetComponent<ShaderScript>();
         //Debug.Log("현재 목숨 수 :" + heart);
     }
 

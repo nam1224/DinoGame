@@ -35,9 +35,9 @@ public class CanvasManager : MonoBehaviour
         }
     }
     
-    public Text textScore;
+    public Text textScore; //gamePanel
     public int stackScore = 0;
-    public int scorePlus = 1; //이거 건드려서 점수 증가량 조절
+    public int scorePlus = 1;
     float time;
     DataSave data;
     void Score() //Score를 관리
@@ -51,20 +51,27 @@ public class CanvasManager : MonoBehaviour
             textScore.text = stackScore.ToString();
             time = 0;
         }
-        else
-        {
-            textMyScore.text = stackScore.ToString();
-        }
-
-        
+        SaveSocre();
     }
 
-    public Text textFinalScore;
-    public Text textMyScore;
+    bool isSave = true;
+    void SaveSocre()
+    {
+        
+        if (isSave == true && pl.isGameOver == true)
+        {
+            textMyScore.text = stackScore.ToString();
+            data.loadData();
+            data.SaveData();
+            isSave = false;
+        }
+    }
+
+    public Text textFinalScore; //전판 점수
+    public Text textMyScore; //이번판 점수
 
     void Update()
     {
-
         ShowHeart();
         Score();
     }
