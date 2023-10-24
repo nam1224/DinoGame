@@ -19,6 +19,6 @@ public class RepeatBg : MonoBehaviour
     private void Update()
     {
         newPos = Mathf.Repeat(Time.time * speed, posValue);
-        transform.position = startPos * Vector2.right * newPos;
+        transform.position = startPos + Vector2.right * newPos;
     }
 }
