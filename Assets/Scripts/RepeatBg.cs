@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RepeatBg : MonoBehaviour
 {
-    [SerializeField] [Range(1f, 20f)] float speed = 3f;
+    [SerializeField] [Range(0.1f, 20f)] float speed = 3f;
 
     [SerializeField] float posValue;
 
