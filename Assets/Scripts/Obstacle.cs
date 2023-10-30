@@ -6,6 +6,7 @@ public class Obstacle : MonoBehaviour
 {
     Player pl;
     Rigidbody2D rb2D;
+    RepeatBg repeatBg;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,11 +30,12 @@ public class Obstacle : MonoBehaviour
     public float speed = 3;
     void MoveObstacle()
     {
+        repeatBg = GameObject.Find("cloud").GetComponent<RepeatBg>();
         pl = GameObject.Find("Player").GetComponent<Player>();
         rb2D = GetComponent<Rigidbody2D>();
         if (pl.isGameOver == false)
         {
-            rb2D.velocity = Vector2.right * speed;
+            rb2D.velocity = Vector2.right * (speed + repeatBg.adjustSpeed(speed));
         }
         else
         {
