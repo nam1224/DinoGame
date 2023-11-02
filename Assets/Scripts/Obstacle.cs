@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    public float speed = 3;
+    public float speed = 3.5f;
     void MoveObstacle()
     {
         repeatBg = GameObject.Find("cloud").GetComponent<RepeatBg>();

@@ -25,7 +25,7 @@ public class RepeatBg : MonoBehaviour
     public float adjustSpeed(float _speed)
     {
         float second = 10f;
-        float w = 0.2f;
+        float w = 0.5f;
 
         _speed = Time.time / second * w;
         //Debug.Log(_speed);

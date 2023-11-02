@@ -7,18 +7,19 @@ public class ObstacleManager : MonoBehaviour
     public GameObject obstacle;
     void Start()
     {
-        SpawnObstacle(spawnTime);
+        SpawnObstacle(checkTime);
     }
 
     Player pl;
     public Transform spawnUp; //up
     public Transform spawnDown; //down
-    private float spawnTime= 3;
+    private float checkTime = 3; //시간을 측정함
+    private float spawnTime = 3; //스폰 타임의 기본값
 
     void SpawnObstacle(float time)
     {
         pl = GameObject.Find("Player").GetComponent<Player>();
-        if (time >= 3 && pl.isGameOver == false)
+        if (time >= spawnTime && pl.isGameOver == false)
         {
             int spawnPos = Random.Range(0, 2);
             if (spawnPos < 1) //up
@@ -27,13 +28,13 @@ public class ObstacleManager : MonoBehaviour
             }
             else if (spawnPos >= 1) //down
                 Instantiate(obstacle, new Vector2(spawnUp.position.x, spawnDown.position.y), Quaternion.identity);
-            spawnTime = 0;
+            checkTime = 0;
         }
     }
 
     void Update()
     {
-        spawnTime += Time.deltaTime;
-        SpawnObstacle(spawnTime);
+        checkTime += Time.deltaTime;
+        SpawnObstacle(checkTime);
     }
 }
