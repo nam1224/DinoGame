@@ -14,7 +14,7 @@ public class ObstacleManager : MonoBehaviour
     public Transform spawnUp; //up
     public Transform spawnDown; //down
     private float checkTime = 3; //시간을 측정함
-    private float spawnTime = 3; //스폰 타임의 기본값
+    public float spawnTime = 3; //스폰 타임의 기본값
 
     void SpawnObstacle(float time)
     {
